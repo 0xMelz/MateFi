@@ -1,0 +1,39 @@
+import Redis from "ioredis"; // Redis
+import type { NextApiRequest, NextApiResponse } from "next";
+
+/**
+ * Literally, store metadata in Redis on creation :(
+ */
+const metadata = async (req: NextApiRequest, res: NextApiResponse) => {
+  // Collect required parameters
+  const { name, description, imageURL, tokenAddress, tokenId } = req.body;
+
+  // Enforce required parameters
+  if (!name || !tokenAddress || !tokenId) {
+    res.status(502).send({ error: "Missing parameters" });
+  }
+
+  // Setup redis and data structure
+  const client = new Redis(process.env.NEXT_PUBLIC_REDIS_URL);
+  let existingData = await client.get("metadata");
+  let newData: Record<string, Record<string, string>> = {};
+
+  // If data exists
+  if (existingData) {
+    // Parse and replace structure
+    newData = JSON.parse(existingData);
+  }
+
+  // Update structure with new metadata
+  newData[`${tokenAddress.toLowerCase()}-${tokenId.toString()}`] = {
+    name,
+    description,
+    imageURL,
+  };
+
+  // Save metadata and return
+  await client.set("metadata", JSON.stringify(newData));
+  res.status(200).send({ success: true });
+};
+
+export default metadata;
