@@ -9,8 +9,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @title FraxLoans: NFT-collateralized lending
- * @dev Completed loans are represented as tokenOwner = 0x0 to prevent
- *      errors w.r.t stack too deep (too large of a struct to include a bool)
+ * @author mehmaj
  */
 contract FraxLoans {
   // ============ Structs ============
