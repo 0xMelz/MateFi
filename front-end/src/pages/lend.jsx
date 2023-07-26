@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Frax.loans - lend</title>
+                <title>MateFi - lend</title>
             </Head>
             <Header/>
             <main>
