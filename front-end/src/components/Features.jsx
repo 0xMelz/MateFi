@@ -90,7 +90,7 @@ export function Features() {
                         <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Primary
                             Features</p>
                         <p className="mt-6 text-lg leading-8 text-gray-100">
-                            Frax.loans is a hybrid auction and lending platform for your NFTs. Borrow against
+                            MateFi is a hybrid auction and lending platform for your NFTs. Borrow against
                             your
                             collection or earn fixed rewards.
                         </p>
