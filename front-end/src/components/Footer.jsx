@@ -13,17 +13,17 @@ export function Footer() {
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
               <NavLink href="/">Home</NavLink>
-              <NavLink href="https://frax.finance/">Frax Finance</NavLink>
-              <NavLink href="https://github.com/h-sameri/frax-loans/">About</NavLink>
+              <NavLink href="https://meter.io/">Meter Network</NavLink>
+              <NavLink href="https://github.com/0xMelz/MateFi/">About</NavLink>
             </div>
           </nav>
         </div>
         <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">
             <Link
-              href="https://github.com/h-sameri/frax-loans/"
+              href="https://github.com/0xMelz/MateFi/"
               className="group"
-              aria-label="Frax.loans"
+              aria-label="MateFi"
             >
               <svg
                 aria-hidden="true"
@@ -34,7 +34,7 @@ export function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} Frax.loans.
+            Copyright &copy; {new Date().getFullYear()} MateFi.
           </p>
         </div>
       </Container>
