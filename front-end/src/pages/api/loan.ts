@@ -22,7 +22,7 @@ export async function collectSingleLoan(
   }
 
   // Collect loan
-  const loan: any[] = await FraxBankRPC.fraxLoans(loanId);
+  const loan: any[] = await FraxBankRPC.mateFi(loanId);
   // Collect loan metadata from temporary Redis store
   const { name, description, imageURL } =
     metadata[`${loan[0].toLowerCase()}-${loan[3].toString()}`];
