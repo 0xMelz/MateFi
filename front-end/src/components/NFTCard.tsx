@@ -51,7 +51,7 @@ export default function NFTCard({
                     <dd className="text-sm text-gray-500  h-10">{description}</dd>
                     <dt className="sr-only">Token Address</dt>
                     <dd className="mt-3">
-                        <a href={`https://sepolia.etherscan.io/address/${contractAddress}`} target="_blank"
+                        <a href={`https://scan-warringstakes.meter.io/address/${contractAddress}`} target="_blank"
                            rel="noopener noreferrer"
                            className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
                             {contractAddress.substr(0, 6) +
