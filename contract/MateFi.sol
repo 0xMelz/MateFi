@@ -8,14 +8,14 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
- * @title FraxLoans: NFT-collateralized lending
+ * @title MateFi: NFT-collateralized lending
  * @author mehmaj
  */
-contract FraxLoans {
+contract MateFi {
   // ============ Structs ============
 
   // Individual loan
-  struct FraxLoan {
+  struct MateFi {
     // NFT token address
     address tokenAddress;
     // NFT token owner (loan initiator or 0x0 for repaid)
@@ -47,9 +47,9 @@ contract FraxLoans {
   // Number of loans issued
   uint256 public numLoans;
   // Mapping of loan number to loan struct
-  mapping(uint256 => FraxLoan) public fraxLoans;
+  mapping(uint256 => FraxLoan) public mateFi;
   // ERC20 token address
-  address constant public erc20token = 0x7439E9Bb6D8a84dd3A23fe621A30F95403F87fB9;
+  address constant public erc20token = 0x632be8d702affca83c78af5529bf0d8d0de81860;
 
   // ============ Events ============
 
@@ -124,7 +124,7 @@ contract FraxLoans {
 
   /**
    * Helper: Calculate accrued interest for a particular lender
-   * @param _loanId FraxLoan id
+   * @param _loanId MateFi id
    * @param _future allows calculating accrued interest in future
    * @return Accrued interest on current top bid, in Ether
    */
@@ -133,7 +133,7 @@ contract FraxLoans {
   view
   returns (uint256)
   {
-    FraxLoan memory loan = fraxLoans[_loanId];
+    MateFi memory loan = mateFi[_loanId];
     // Seconds that current bid has stayed at top
     uint256 _secondsAsTopBid = block.timestamp + _future - loan.lastBidTime;
     // Seconds that any loan has been active
@@ -155,7 +155,7 @@ contract FraxLoans {
    * @return required interest payment to cover current top bidder
    */
   function calculateTotalInterest(uint256 _loanId, uint256 _future) public view returns (uint256) {
-    FraxLoan memory loan = fraxLoans[_loanId];
+    MateFi memory loan = mateFi[_loanId];
 
     // past lender interest + current accrued interest
     return loan.historicInterest + calculateInterestAccrued(_loanId, _future);
@@ -163,7 +163,7 @@ contract FraxLoans {
 
   /**
    * Helper: Calculate required capital to repay loan
-   * @param _loanId FraxLoan id
+   * @param _loanId MateFi id
    * @param _future allows calculating require payment in future
    * @return required loan repayment in Ether
    */
@@ -172,7 +172,7 @@ contract FraxLoans {
   view
   returns (uint256)
   {
-    FraxLoan memory loan = fraxLoans[_loanId];
+    MateFi memory loan = mateFi[_loanId];
 
     // amount withdrawn + total interest to be paid
     return loan.loanAmountDrawn + calculateTotalInterest(_loanId, _future);
@@ -184,7 +184,7 @@ contract FraxLoans {
    * @dev Requires an unpaid loan, where currentBid < newBid <= maxBid
    */
   function underwriteLoan(uint256 _loanId, uint256 amount) external {
-    FraxLoan storage loan = fraxLoans[_loanId];
+    MateFi storage loan = mateFi[_loanId];
     // Prevent underwriting with 0 value
     require(amount > 0, "Can't underwrite with 0 tokens.");
     // Prevent underwriting a repaid loan
@@ -238,7 +238,7 @@ contract FraxLoans {
    * @param _loanId id of loan to draw from
    */
   function drawLoan(uint256 _loanId) external {
-    FraxLoan storage loan = fraxLoans[_loanId];
+    MateFi storage loan = mateFi[_loanId];
     // Prevent non-loan-owner from drawing
     require(loan.tokenOwner == msg.sender, "Must be NFT owner to draw.");
     // Prevent drawing from a loan with 0 available capital
@@ -262,7 +262,7 @@ contract FraxLoans {
    * @param _loanId id of loan to repay
    */
   function repayLoan(uint256 _loanId) external {
-    FraxLoan storage loan = fraxLoans[_loanId];
+    MateFi storage loan = mateFi[_loanId];
     // Prevent repaying repaid loan
     require(loan.tokenOwner != address(0), "Can't repay paid loan.");
     // Prevent repaying loan without bids
@@ -321,7 +321,7 @@ contract FraxLoans {
    * @param _loanId id of loan to seize collateral
    */
   function seizeNFT(uint256 _loanId) external {
-    FraxLoan memory loan = fraxLoans[_loanId];
+    MateFi memory loan = mateFi[_loanId];
     // Enforce loan is unpaid
     require(loan.tokenOwner != address(0), "Can't seize from repaid loan.");
     // Enforce loan is expired
