@@ -29,7 +29,7 @@ async function collectAllLoans(): Promise<LoanWithMetadata[]> {
     // For each loan
     for (let i = 1; i <= numLoansInt; i++) {
         // Collect loan information from contract
-        const loan: any[] = await FraxBankRPC.fraxLoans(i);
+        const loan: any[] = await FraxBankRPC.mateFi(i);
         try {
             // Collect loan metadata from temporary Redis store
             const {name, description, imageURL} =
