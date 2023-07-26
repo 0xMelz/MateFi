@@ -1,16 +1,16 @@
-# Frax Loans Smart Contract Documentation
+# MateFi Smart Contract Documentation
 
 ## Overview
-Frax Loans is a decentralized smart contract that facilitates NFT-collateralized lending on the Ethereum blockchain. It provides a platform where NFT owners can create loan offers by locking their NFTs as collateral, and other users (lenders) can bid on these loans with a fixed interest rate. The smart contract manages the loan lifecycle, including loan creation, bidding, loan drawing, loan repayment, loan cancellation, and NFT seizure in case of loan default.
+MateFi is a decentralized smart contract that facilitates NFT-collateralized lending on the Meter blockchain. It provides a platform where NFT owners can create loan offers by locking their NFTs as collateral, and other users (lenders) can bid on these loans with a fixed interest rate. The smart contract manages the loan lifecycle, including loan creation, bidding, loan drawing, loan repayment, loan cancellation, and NFT seizure in case of loan default.
 
 ## Contract Structure
 The contract is implemented in Solidity and follows the ERC-721 and ERC-20 token standards for NFTs and token interaction. The contract is designed to be compatible with Solidity version 0.8.0 and higher. Additionally, it uses external libraries for mathematical calculations (ABDKMath64x64) and imports OpenZeppelin's ERC-721 and ERC-20 token contracts.
 
 ### Structs
-1. `FraxLoan`: Represents an individual loan with the following attributes:
-    - `tokenAddress`: The Ethereum address of the NFT token used as collateral.
-    - `tokenOwner`: The Ethereum address of the NFT owner (loan initiator). It is set to 0x0 once the loan is repaid to save space.
-    - `lender`: The Ethereum address of the current top lender/bidder.
+1. `MateFi`: Represents an individual loan with the following attributes:
+    - `tokenAddress`: The Meter address of the NFT token used as collateral.
+    - `tokenOwner`: The Meter address of the NFT owner (loan initiator). It is set to 0x0 once the loan is repaid to save space.
+    - `lender`: The Meter address of the current top lender/bidder.
     - `tokenId`: The ID of the NFT token used as collateral.
     - `interestRate`: The fixed interest rate for the loan in percentage.
     - `loanAmount`: The current bid amount for the loan denominated in an ERC-20 token.
@@ -23,7 +23,7 @@ The contract is implemented in Solidity and follows the ERC-721 and ERC-20 token
 
 ### Mutable Storage
 1. `numLoans`: An unsigned integer representing the total number of loans issued.
-2. `fraxLoans`: A mapping that associates a unique loan number (ID) with a `FraxLoan` struct, representing all the active loans.
+2. `mateFi`: A mapping that associates a unique loan number (ID) with a `MateFi` struct, representing all the active loans.
 
 ### Events
 1. `LoanCreated`: Fired when a new loan is created by an NFT owner.
