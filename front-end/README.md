@@ -1,23 +1,23 @@
-# Frax Loans
+# MateFi
 
-Frax Loans is a decentralized application (dApp) designed to empower NFT owners by allowing them to borrow Frax stablecoin using their NFTs as collateral. It aims to address the challenge of effectively pricing NFTs, which has limited their use as collateral in traditional lending systems. By utilizing an active auction mechanism, Frax Loans provides a dynamic and flexible way for NFT owners to access loans and for Frax lenders to participate in the lending process.
+MateFi is a decentralized application (dApp) designed to empower NFT owners by allowing them to borrow Meter stablecoin ($MTR) using their NFTs as collateral. It aims to address the challenge of effectively pricing NFTs, which has limited their use as collateral in traditional lending systems. By utilizing an active auction mechanism, Meter Loans provides a dynamic and flexible way for NFT owners to access loans and for Meter lenders to participate in the lending process.
 
 
 
 ## Installation
 
-To install and run Frax Loans, follow the steps below:
+To install and run MateFi, follow the steps below:
 
 1. Install redis
 
 
 2. Clone the repository from GitHub:
    ```
-   git clone https://github.com/h-sameri/frax-loans.git
+   git clone https://github.com/0xMelz/MateFi.git
    ```
 3. Navigate to the project directory:
    ```
-   cd frax-loans/front-end
+   cd matefi/front-end
    ```
    
 4. Copy `.env.sample` to `.env.local` and populate environment variables.
@@ -30,7 +30,7 @@ To install and run Frax Loans, follow the steps below:
 
 ## Running
 
-Once you have installed Frax Loans, you can run it locally by following these steps:
+Once you have installed MateFi, you can run it locally by following these steps:
 
 1. Start the local development server:
    ```
