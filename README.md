@@ -6,7 +6,7 @@ Frax Loans is a decentralized application (dApp) designed to empower NFT owners 
 Frax Loans demo is up at: **[https://frax.loans](https://frax.loans/)**
 
 
-Demo video is available at: **[youtu.be/....](https://youtu.be/....)**
+Demo video is available at: **[youtu.be/p4z-XaBgRIQ](https://youtu.be/p4z-XaBgRIQ)**
 
 
 ## The Need for Frax Loans
