@@ -1,5 +1,5 @@
 // Export ABI for FraxContractABI contract
-export const FraxContractABI =
+export const MeterContractABI =
     [{"inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor"}, {
         "anonymous": false,
         "inputs": [{
