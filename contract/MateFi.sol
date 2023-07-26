@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @title MateFi: NFT-collateralized lending
- * @author mehmaj
+ * @author melz
  */
 contract MateFi {
   // ============ Structs ============
