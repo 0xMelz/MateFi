@@ -68,7 +68,7 @@ export default function Loan({
 
         <>
             <Head>
-                <title>Frax.loans - loan {loan.name}</title>
+                <title>MateFi - loan {loan.name}</title>
             </Head>
             <Header/>
             <main>
@@ -116,7 +116,7 @@ export default function Loan({
                                                         <div className="mt-2">
                                                             <label htmlFor="bid-amount"
                                                                    className="block text-sm font-medium leading-6 text-gray-900">Bid
-                                                                Value (FRAX)</label>
+                                                                Value ($MTR)</label>
                                                             <input id="bid-amount" value={bid} name="bid-amount"
                                                                    type="number" required
                                                                    onChange={(e) => setBid(e.target.value)}
@@ -427,7 +427,7 @@ function LoanDetails(loan: LoanWithMetadata): ReactElement {
                         </dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:ml-6 sm:mt-0">
                             This NFT is currently owned and lent out by{" "} <b><a className="underline"
-                                                                                   href={`https://sepolia.etherscan.io/address/${loan.tokenOwner}`}
+                                                                                   href={`https://scan-warringstakes.meter.io/address/${loan.tokenOwner}`}
                                                                                    target="_blank"
                                                                                    rel="noopener noreferrer"
                         >
@@ -440,7 +440,7 @@ function LoanDetails(loan: LoanWithMetadata): ReactElement {
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:ml-6 sm:mt-0">
                             The owner is paying <b>{loan.interestRate}% fixed interest</b> until{" "}
                             <b>{dayjs(loan.loanCompleteTime * 1000).format("MMMM D, YYYY h:mm A")}{" "}</b>
-                            to facilitate a bid ceiling of <b>{loan.maxLoanAmount} FRAX</b>.
+                            to facilitate a bid ceiling of <b>{loan.maxLoanAmount} $MTR</b>.
                         </dd>
                     </div>
 
@@ -452,14 +452,14 @@ function LoanDetails(loan: LoanWithMetadata): ReactElement {
                             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:ml-6 sm:mt-0">
                                 The current top lender is{" "}
                                 <b><a className="underline"
-                                      href={`https://sepolia.etherscan.io/address/${loan.lender}`}
+                                      href={`https://scan-warringstakes.meter.io/address/${loan.lender}`}
                                       target="_blank"
                                       rel="noopener noreferrer"
                                 >
                                     {loan.lender}
                                 </a>{" "}</b>
-                                with a <b>bid of {loan.loanAmount} FRAX</b> (of which the owner has&nbsp;
-                                <b>drawn {loan.loanAmountDrawn} FRAX</b>).
+                                with a <b>bid of {loan.loanAmount} $MTR</b> (of which the owner has&nbsp;
+                                <b>drawn {loan.loanAmountDrawn} $MTR</b>).
                             </dd>
                         </div>
                     ) : (
@@ -479,7 +479,7 @@ function LoanDetails(loan: LoanWithMetadata): ReactElement {
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:ml-6 sm:mt-0">
                             <b>{loan.tokenId}</b> of contract{" "}
                             <b><a className="underline"
-                                  href={`https://sepolia.etherscan.io/address/${loan.tokenAddress}`}
+                                  href={`https://scan-warringstakes.meter.io/address/${loan.tokenAddress}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
                             >
