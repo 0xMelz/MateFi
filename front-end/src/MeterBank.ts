@@ -1,4 +1,4 @@
-// Export ABI for FraxBank contract
+// Export ABI for MeterBank contract
 export const MeterBankABI = [
     {
         "anonymous": false,
