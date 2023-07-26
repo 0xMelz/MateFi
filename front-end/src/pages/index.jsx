@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Frax.loans - Borrow and lend with Frax.loans</title>
+                <title>MateFi - Borrow and lend with MateFi</title>
             </Head>
             <Header/>
             <main>
